@@ -7,7 +7,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function TabLayout() {
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
   const { unreadCount } = useNotificationStore();
 
   // If not authenticated, don't show tabs
