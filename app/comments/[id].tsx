@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
-import { useVideoStore } from '@/store/videoStore';
-import { useAuthStore } from '@/store/authStore';
 import CommentsSheet from '@/components/CommentsSheet';
+import { useAuthStore } from '@/store/authStore';
+import { useVideoStore } from '@/store/videoStore';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React, { useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
 
 export default function CommentsScreen() {
+  const router = useRouter();
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { fetchComments, comments, addComment, isLoading } = useVideoStore();
+  const { fetchComments, comments, addComment } = useVideoStore();
   const { user } = useAuthStore();
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     if (id) {
       fetchComments(id);
     }
-  }, [id]);
+  }, [fetchComments, id]);
 
   const handleClose = () => {
-    setIsVisible(false);
-    // In a real app, we would navigate back
+    router.back();
   };
 
   const handleAddComment = (text: string) => {
@@ -29,12 +28,13 @@ export default function CommentsScreen() {
   };
 
   const handleLikeComment = (commentId: string) => {
-    // In a real app, this would like the comment
+    const updatedComments = comments.map(comment =>
+      comment.id === commentId
+        ? { ...comment, likes: (comment.likes || 0) + 1 }
+        : comment
+    );
+    useVideoStore.setState({ comments: updatedComments });
   };
-
-  if (!isVisible) {
-    return null;
-  }
 
   return (
     <View style={styles.container}>

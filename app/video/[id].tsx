@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { X } from 'lucide-react-native';
-import { colors } from '@/constants/colors';
-import { useVideoStore } from '@/store/videoStore';
-import { useAuthStore } from '@/store/authStore';
-import VideoPlayer from '@/components/VideoPlayer';
 import VideoActions from '@/components/VideoActions';
 import VideoInfo from '@/components/VideoInfo';
+import VideoPlayer from '@/components/VideoPlayer';
+import { colors } from '@/constants/colors';
+import { useAuthStore } from '@/store/authStore';
+import { useVideoStore } from '@/store/videoStore';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { X } from 'lucide-react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default function VideoScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -44,10 +44,8 @@ export default function VideoScreen() {
     // Share functionality
   };
 
-  const handleProfilePress = () => {
-    if (video) {
-      router.push(`/profile/${video.userId}`);
-    }
+  const handleProfilePress = (userId: string) => {
+    router.push(`/profile/${userId}`);
   };
 
   if (isLoading || !video) {
@@ -74,6 +72,7 @@ export default function VideoScreen() {
         comments={video.comments}
         shares={video.shares}
         userPhotoURL={video.userPhotoURL}
+        userId={video.userId} // Pass userId to VideoActions
         onLikePress={handleLikePress}
         onCommentPress={handleCommentPress}
         onSharePress={handleSharePress}

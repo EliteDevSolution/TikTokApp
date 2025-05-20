@@ -184,7 +184,9 @@ export default function CreateScreen() {
       <CameraView
         style={styles.camera}
         facing={cameraType}
-      >
+        ref={cameraRef}
+      />
+      <View style={styles.cameraOverlay} pointerEvents="box-none">
         <View style={styles.cameraControls}>
           <View style={styles.topControls}>
             <TouchableOpacity style={styles.controlButton} onPress={() => router.back()}>
@@ -221,7 +223,7 @@ export default function CreateScreen() {
             </TouchableOpacity>
           </View>
         </View>
-      </CameraView>
+      </View>
     </View>
   );
 }
@@ -250,6 +252,10 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
+  },
+  cameraOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'space-between',
   },
   cameraControls: {
     flex: 1,

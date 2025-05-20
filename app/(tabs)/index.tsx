@@ -78,10 +78,11 @@ export default function HomeScreen() {
               comments={item.comments}
               shares={item.shares}
               userPhotoURL={item.userPhotoURL}
+              userId={item.userId} // Pass userId to VideoActions
               onLikePress={() => handleLikePress(item.id)}
               onCommentPress={() => handleCommentPress(item.id)}
               onSharePress={handleSharePress}
-              onProfilePress={() => handleProfilePress(item.userId)}
+              onProfilePress={handleProfilePress} // Pass the handler
             />
             <VideoInfo
               username={item.username}

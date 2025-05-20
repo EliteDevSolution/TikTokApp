@@ -69,6 +69,7 @@ function RootLayoutNav() {
       <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
       <Stack.Screen name="video/[id]" options={{ presentation: 'fullScreenModal', animation: 'slide_from_bottom' }} />
       <Stack.Screen name="comments/[id]" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+      <Stack.Screen name="profile/[id]" options={{ headerShown: true, animation: 'slide_from_right' }} />
       <Stack.Screen name="chat/[id]" options={{ headerShown: true, animation: 'slide_from_right' }} />
       <Stack.Screen name="notifications" options={{ headerShown: true, animation: 'slide_from_right' }} />
       <Stack.Screen name="edit-profile" options={{ headerShown: true, animation: 'slide_from_right' }} />

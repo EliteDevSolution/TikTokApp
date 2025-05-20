@@ -9,10 +9,11 @@ interface VideoActionsProps {
   comments: number;
   shares: number;
   userPhotoURL: string;
+  userId: string; // Add userId prop
   onLikePress: () => void;
   onCommentPress: () => void;
   onSharePress: () => void;
-  onProfilePress: () => void;
+  onProfilePress: (userId: string) => void; // Update to accept userId
   isLiked?: boolean;
 }
 
@@ -21,6 +22,7 @@ const VideoActions: React.FC<VideoActionsProps> = ({
   comments,
   shares,
   userPhotoURL,
+  userId, // Use userId
   onLikePress,
   onCommentPress,
   onSharePress,
@@ -29,7 +31,10 @@ const VideoActions: React.FC<VideoActionsProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.actionButton} onPress={onProfilePress}>
+      <TouchableOpacity
+        style={styles.actionButton}
+        onPress={() => onProfilePress(userId)} // Pass userId to the handler
+      >
         <View style={styles.profileImageContainer}>
           <Image source={{ uri: userPhotoURL }} style={styles.profileImage} />
         </View>

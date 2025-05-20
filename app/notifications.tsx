@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-  ActivityIndicator
-} from 'react-native';
-import { Stack, useRouter } from 'expo-router';
-import { ArrowLeft } from 'lucide-react-native';
+import NotificationItem from '@/components/NotificationItem';
 import { colors } from '@/constants/colors';
 import { useAuthStore } from '@/store/authStore';
 import { useNotificationStore } from '@/store/notificationStore';
-import NotificationItem from '@/components/NotificationItem';
 import { Notification } from '@/types';
+import { Stack, useRouter } from 'expo-router';
+import { ArrowLeft } from 'lucide-react-native';
+import React, { useEffect } from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 export default function NotificationsScreen() {
   const router = useRouter();
@@ -71,6 +71,7 @@ export default function NotificationsScreen() {
       <Stack.Screen
         options={{
           title: 'Notifications',
+          headerShown: true,
           headerLeft: () => (
             <TouchableOpacity
               style={styles.backButton}

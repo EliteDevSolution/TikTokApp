@@ -1,18 +1,18 @@
-import React, { useState, useRef } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TextInput,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard
-} from 'react-native';
-import { X, Send } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
 import { Comment } from '@/types';
+import { Send, X } from 'lucide-react-native';
+import React, { useRef, useState } from 'react';
+import {
+  FlatList,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import CommentItem from './CommentItem';
 
 interface CommentsSheetProps {
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 15,
+    marginTop: 25,
     borderBottomWidth: 0.5,
     borderBottomColor: colors.lightGray,
     position: 'relative',
