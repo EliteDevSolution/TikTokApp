@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  ScrollView
-} from 'react-native';
-import { Image } from 'expo-image';
-import { Search, TrendingUp } from 'lucide-react-native';
-import { useRouter } from 'expo-router';
 import { colors } from '@/constants/colors';
 import { mockVideos } from '@/mocks/videos';
+import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
+import { Search, TrendingUp } from 'lucide-react-native';
+import React, { useState } from 'react';
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 const categories = [
   'For You', 'Trending', 'Comedy', 'Dance', 'Sports', 'Food', 'Beauty', 'Animals', 'DIY'
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
   categoryText: {
     color: colors.black,
     fontWeight: '500',
+    lineHeight: 20,
   },
   activeCategoryText: {
     color: colors.white,

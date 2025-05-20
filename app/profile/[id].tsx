@@ -119,7 +119,7 @@ export default function UserProfileScreen() {
     <>
       <Stack.Screen
         options={{
-          title: user.username,
+          title: ' ' + user.username,
           headerShown: true,
           headerLeft: () => (
             <TouchableOpacity
