@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, StyleSheet, Dimensions, TouchableWithoutFeedback, ActivityIndicator, Platform } from 'react-native';
-import { Video as ExpoVideo } from 'expo-av';
 import { colors } from '@/constants/colors';
+import { Video as ExpoVideo } from 'expo-av';
+import React, { useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, Dimensions, Platform, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 
 interface VideoPlayerProps {
   uri: string;

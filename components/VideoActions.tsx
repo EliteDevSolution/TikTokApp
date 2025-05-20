@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { Image } from 'expo-image';
-import { Heart, MessageCircle, Share2, Bookmark } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
+import { Image } from 'expo-image';
+import { Bookmark, Heart, MessageCircle, Share2 } from 'lucide-react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface VideoActionsProps {
   likes: number;
@@ -32,9 +32,9 @@ const VideoActions: React.FC<VideoActionsProps> = ({
       <TouchableOpacity style={styles.actionButton} onPress={onProfilePress}>
         <View style={styles.profileImageContainer}>
           <Image source={{ uri: userPhotoURL }} style={styles.profileImage} />
-          <View style={styles.plusIcon}>
-            <Text style={styles.plusIconText}>+</Text>
-          </View>
+        </View>
+        <View style={styles.plusIcon}>
+          <Text style={styles.plusIconText}>+</Text>
         </View>
       </TouchableOpacity>
 
@@ -106,9 +106,9 @@ const styles = StyleSheet.create({
   },
   plusIcon: {
     position: 'absolute',
-    bottom: -10,
+    bottom: 5,
     left: 0,
-    right: 0,
+    right: 5,
     alignItems: 'center',
     backgroundColor: colors.primary,
     borderRadius: 10,

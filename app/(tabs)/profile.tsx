@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-  ScrollView
-} from 'react-native';
+import ProfileHeader from '@/components/ProfileHeader';
+import { colors } from '@/constants/colors';
+import { mockVideos } from '@/mocks/videos';
+import { useAuthStore } from '@/store/authStore';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import { Grid, Bookmark, Lock, Settings } from 'lucide-react-native';
-import { colors } from '@/constants/colors';
-import { useAuthStore } from '@/store/authStore';
-import ProfileHeader from '@/components/ProfileHeader';
-import { mockVideos } from '@/mocks/videos';
+import { Bookmark, Grid, Lock, LogOut } from 'lucide-react-native';
+import React, { useState } from 'react';
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 export default function ProfileScreen() {
   const router = useRouter();
@@ -71,7 +71,7 @@ export default function ProfileScreen() {
       <View style={styles.header}>
         <Text style={styles.username}>{user.username}</Text>
         <TouchableOpacity onPress={handleLogout}>
-          <Settings size={24} color={colors.black} />
+          <LogOut size={24} color={colors.black} />
         </TouchableOpacity>
       </View>
 

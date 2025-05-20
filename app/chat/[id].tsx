@@ -1,23 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react';
+import MessageItem from '@/components/MessageItem';
+import { colors } from '@/constants/colors';
+import { mockUsers } from '@/mocks/users';
+import { useAuthStore } from '@/store/authStore';
+import { useChatStore } from '@/store/chatStore';
+import { Image } from 'expo-image';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { ArrowLeft, Send } from 'lucide-react-native';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
+  ActivityIndicator,
   FlatList,
   KeyboardAvoidingView,
   Platform,
-  ActivityIndicator
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
-import { Image } from 'expo-image';
-import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
-import { Send, ArrowLeft } from 'lucide-react-native';
-import { colors } from '@/constants/colors';
-import { useAuthStore } from '@/store/authStore';
-import { useChatStore } from '@/store/chatStore';
-import MessageItem from '@/components/MessageItem';
-import { mockUsers } from '@/mocks/users';
 
 export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -36,7 +36,7 @@ export default function ChatScreen() {
       fetchMessages(id);
       markChatAsRead(id);
     }
-  }, [id, user]);
+  }, [fetchMessages, id, markChatAsRead, user]);
 
   useEffect(() => {
     // Scroll to bottom when messages change

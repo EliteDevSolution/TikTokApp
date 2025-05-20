@@ -55,7 +55,7 @@ export default function EditProfileScreen() {
     <>
       <Stack.Screen
         options={{
-          title: 'Edit Profile',
+          title: ' Edit Profile',
           headerLeft: () => (
             <TouchableOpacity
               style={styles.backButton}

@@ -1,22 +1,22 @@
-import React, { useState, useRef } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-  ScrollView,
-  TextInput,
-  KeyboardAvoidingView,
-  ActivityIndicator
-} from 'react-native';
-import { Image } from 'expo-image';
-import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
-import * as ImagePicker from 'expo-image-picker';
-import { useRouter } from 'expo-router';
-import { Camera, Video, Upload, X, Check, Music, Timer, Zap, Sparkles } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
 import { useAuthStore } from '@/store/authStore';
+import { CameraType, CameraView, useCameraPermissions } from 'expo-camera';
+import { Image } from 'expo-image';
+import * as ImagePicker from 'expo-image-picker';
+import { useRouter } from 'expo-router';
+import { Camera, Check, Music, Sparkles, Timer, Upload, X, Zap } from 'lucide-react-native';
+import React, { useRef, useState } from 'react';
+import {
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 export default function CreateScreen() {
   const router = useRouter();
